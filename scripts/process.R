@@ -85,12 +85,14 @@ process_golive_file <- function(file, outfile, variables = c("vx", "vy", "corr",
 # ---- Download files ----
 DIR <- "archive"
 
-for (path in 66:67) {
+for (path in 66:68) {
   download_golive_files(path = path, row = 17, dir = DIR)
 }
 
 # ---- Process files ----
 OUTDIR <- "data"
+
+# FIXME: Overlapping dates between the different paths. Merge masked velocities?
 
 files <- list.files(DIR, full.names = TRUE)
 # Check which files have already been processed
